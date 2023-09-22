@@ -9,12 +9,12 @@ function App() {
     return (
         <div className="container">
             <Routes>
-                <Route path="/testTaskCloud" element={<AuthorizationPage />} />
+                <Route path="/" element={<AuthorizationPage />} />
                 <Route path="/create" element={<CreateUserPage />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
         </div>
     )
-};
+}
 
 export default App;

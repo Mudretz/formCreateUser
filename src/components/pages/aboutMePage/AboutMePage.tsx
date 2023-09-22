@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useAppDispatch, useAppSelector } from "../../../store/hook/hook";
 import { aboutMeReceived, clearStateData } from "../../../store/data/data";
 import { aboutMeSchema, maxStringCount} from "../../../constants/schema/aboutMePageSchema";
-import { usePostDataMutation } from "../../../services/apiReduxQuery";
+import {isApiError, useAuthUserMutation, usePostDataMutation} from "../../../services/apiReduxQuery";
 import { getAboutMeData, getState } from "../../../store/data/selector";
 import { stepDecrease } from "../../../store/step/step";
 import { useNavigate } from "react-router-dom";
@@ -17,6 +17,7 @@ import { transformToArrayString } from "../../../utils/transformToArrayString";
 
 type FormData = yup.InferType<typeof aboutMeSchema>;
 
+
 const AboutMePage: FC = () => {
     const [active, setActive] = useState<boolean>(false);
     const [message, setMessage] = useState<string>("");
@@ -26,12 +27,13 @@ const AboutMePage: FC = () => {
     const navigate = useNavigate();
     const aboutMeData = useAppSelector(getAboutMeData);
     const state = useAppSelector(getState);
-    const { register, handleSubmit, watch, formState: { errors } } = useForm<FormData>({
+    const { register, handleSubmit, watch, formState: { errors } } = useForm<FormValues>({
         resolver: yupResolver(aboutMeSchema),
         defaultValues: {
             about: aboutMeData
         }
     });
+
     
     useEffect(() => {
         setStringCount(watch("about").length);
@@ -97,7 +99,7 @@ const AboutMePage: FC = () => {
                         className={style.text_area}
                         placeholder="Placeholder"
                         {...register("about")}
-                    />         
+                    />
                     <p>{stringCount}/{maxStringCount}</p>
                     {errors.about
                         ?
