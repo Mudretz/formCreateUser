@@ -1,24 +1,22 @@
 import { FC, Fragment } from "react";
-import {useAppSelector} from "src/store/hook/hook.ts";
-import {getStep} from "src/store/step/selector.ts";
-import style from "./Stepper.module.scss";
 import Step from "src/components/ui/Step/Step.tsx";
+import style from "./Stepper.module.scss";
 
 type Props = {
-    steps: number
+    stepsCount: number,
+    activeStep: number
 };
 
-const Stepper: FC<Props> = ({ steps }) => {
-    const activeStep = useAppSelector(getStep);
-    const data = [...Array(steps)].map((_, i) => i + 1);
+const Stepper: FC<Props> = ({ stepsCount, activeStep }) => {
+    const data = [...Array(stepsCount)].map((_, i) => i + 1);
 
     return (
         <div className={style.stepper}>
             {data.map((item) => (
                 <Fragment key={item}>
                     <Step
-                        step={item}
-                        steps={steps}
+                        currentStep={item}
+                        stepsCount={stepsCount}
                         activeStep={activeStep}
                     />
                 </Fragment>

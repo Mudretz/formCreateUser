@@ -1,29 +1,24 @@
-import { FC } from "react";
+import { FC, ComponentProps } from "react";
 import classNames from "classnames";
 import style from "./button.module.scss";
 
 type Props = {
-    id: string,
-    onClick?: () => void,
-    children: string,
     theme: "primary" | "secondary"
 };
 
-const Button: FC<Props> = ({ id, onClick, children, theme }) => {
+const Button: FC<Props & ComponentProps<"button">> = ({ theme, ...props }) => {
 
     return (
         <button
-            type="submit"
-            onClick={onClick}
-            className={classNames({
+            {...props}
+            className={classNames(...props.className, {
                 [style.primary] : theme === "primary",
                 [style.secondary]: theme === "secondary"
             })}
-            id={id}
         >
-            {children}
+            {props.children}
         </button>
     );
-}
+};
  
 export default Button;
