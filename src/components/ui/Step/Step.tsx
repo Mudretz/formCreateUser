@@ -7,7 +7,6 @@ type Props = {
     steps: number,
     activeStep: number,
 };
-
 const Step: FC<Props> = ({ step, steps, activeStep }) => {
     return (
         <>
