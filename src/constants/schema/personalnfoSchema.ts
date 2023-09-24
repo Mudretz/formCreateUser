@@ -18,7 +18,7 @@ export const personalInfoSchema = yup.object({
             .required("Поле обязательно для заполнения")
             .matches(/^[a-zA-Zа-яА-Я]*$/, "Допустимы только буквы")
             .max(50, "Максимальное колиство букв не более 30"),
-    sername:
+    surname:
         yup
             .string()
             .trim()
@@ -29,5 +29,5 @@ export const personalInfoSchema = yup.object({
         value: yup.string().required("Выберите пол"),
         label: yup.string().required("Выберите пол"),
     }),
-}).required();
+});
 

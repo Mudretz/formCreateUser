@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from "react";
+import React, { FC, PropsWithChildren } from "react";
 import classNames from "classnames";
 import styles from "./modalWindow.module.scss";
 

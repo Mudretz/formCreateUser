@@ -34,10 +34,6 @@
     column-gap: 16px;
     font-size: 12px;
 
-    @media screen and (max-width: 450px) {
-       flex-direction: column;
-    }
-
     .link_list_item {
         display: flex;
         column-gap: 6px;

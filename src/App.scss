@@ -1,17 +1,12 @@
 @import "../src/constants/colors.scss";
+
 @font-face {
     font-family: "SB Sans Interface";
     src: url(./assets/fonts/SBSansInterface-Regular.woff2) format("woff2");
 }
 
-.container {
-    padding-top: 24px;
-    width: 100vw;
-    height: 100vh;
-    background-color: $grey;
-    display: flex;
-    justify-content: center;
-    font-family: "SB Sans Interface";
+* {
+    font-family: "SB Sans Interface", serif;
     color: $text-color;
 }
 
@@ -28,7 +23,7 @@
     }
 
     &__indicator-separator {
-        width: 0px !important;
+        width: 0 !important;
     }
 
     

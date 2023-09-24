@@ -20,14 +20,13 @@ const SelectInput: FC<Props> = ({ name, placeholder, id, options }) => {
             control={control}
             name={name}
             render={({
-                field: { value, onChange }
+                field
             }) => (
                 <Select
                     inputId={id}
-                    instanceId={`field-sex-option-${value}`}
+                    instanceId={`field-sex-option-${field.value}`}
                     options={options}
-                    value={value}
-                    onChange={onChange}
+                    {...field}
                     classNamePrefix="react-select"
                     placeholder={placeholder}
                     isSearchable={false}

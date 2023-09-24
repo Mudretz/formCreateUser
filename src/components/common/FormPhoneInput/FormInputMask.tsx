@@ -1,7 +1,7 @@
 import { FC } from "react";
 import {Controller, useFormContext} from "react-hook-form";
 import MaskedInput from "react-text-mask";
-import style from "./FormInput.module.scss";
+import style from "./FormInputMask.module.scss";
 
 type Props = {
     name: string,
@@ -16,7 +16,7 @@ const FormInputMask: FC<Props> = ({
     name,
     mask,
     formText,
-    showError,
+    showError= true,
     placeholder,
     guide
 }) => {
@@ -33,6 +33,7 @@ const FormInputMask: FC<Props> = ({
                 name={name}
                 render={({ field: { onChange, value }}) => (
                     <MaskedInput
+                        name={name}
                         mask={mask}
                         placeholder={placeholder}
                         guide={guide}
@@ -43,7 +44,7 @@ const FormInputMask: FC<Props> = ({
                 )}
             />
             {showError &&
-                <p className={style.error}>{error?.message || ""}</p>
+                <p className={style.error}>{error?.message || "\u00A0"}</p>
             }
         </div>
     );

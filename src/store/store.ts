@@ -2,10 +2,12 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import dataReducer from "./data/data";
 import stepReducer from "./step/step";
 import { apiReduxQuery } from "../services/apiReduxQuery";
+import authReducer from "src/components/Pages/AuthPage/store/authPage.reducer.ts";
 
 const rootReducer = combineReducers({
     data: dataReducer,
     step: stepReducer,
+    auth: authReducer,
     [apiReduxQuery.reducerPath]: apiReduxQuery.reducer
 });
 

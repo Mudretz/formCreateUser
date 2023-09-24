@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-export const authorizationSchema = yup.object({
+export const authPageSchema = yup.object({
     phone: 
         yup
             .string()

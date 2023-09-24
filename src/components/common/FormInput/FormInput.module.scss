@@ -1,11 +1,14 @@
 @use "src/constants/colors";
+@use "src/constants/mixin/form";
 
 .form {
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
+    @include form.formInput;
+}
+
+.input {
+    @include form.input;
 }
 
 .error {
-    color: colors.$error
+    color: colors.$error;
 }

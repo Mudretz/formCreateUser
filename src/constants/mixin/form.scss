@@ -1,0 +1,25 @@
+@use "../colors";
+
+@mixin formInput {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+@mixin input {
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid colors.$black-16;
+    background: colors.$black-4;
+}
+
+@mixin formList {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+
+    @media screen and (max-width: 450px) {
+        width: 100%;
+    }
+}
