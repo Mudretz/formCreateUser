@@ -1,22 +1,34 @@
 import { FC } from "react";
 import * as yup from "yup";
+import {useAppDispatch, useAppSelector} from "@/store/hook/hook.ts";
 import { useNavigate } from "react-router-dom";
-import { useForm, FormProvider } from "react-hook-form";
-import { useAppDispatch, useAppSelector } from "src/store/hook/hook.ts";
-import { getAuthState } from "src/components/Pages/AuthPage/store/selectors.ts";
-import { authReceveid } from "src/components/Pages/AuthPage/store/authPage.reducer.ts";
-import { authPageSchema } from "src/components/Pages/AuthPage/schema/authPageSchema.ts";
-import { stepReceived } from "src/store/step/step.ts";
-import { phoneMask } from "src/constants/mask/inputMasks.ts";
+import {useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
-import HeaderAuth from "../../layouts/HeaderAuth/HeaderAuth.tsx";
-import Button from "../../common/button/Button.tsx";
-import FormInputMask from "src/components/common/FormPhoneInput/FormInputMask.tsx";
-import FormInput from "src/components/common/FormInput/FormInput.tsx";
+import { getAuthState } from "./store/selectors.ts";
+import { authReceveid } from "./store/authPage.reducer.ts";
+import {phoneMask} from "@/constants/mask/inputMasks.ts";
+import HeaderAuth from "@/components/layouts/HeaderAuth/HeaderAuth.tsx";
+import FormInputMask from "@/components/common/FormPhoneInput/FormInputMask.tsx";
+import FormInput from "@/components/common/FormInput/FormInput.tsx";
+import Button from "@/components/common/button/Button.tsx";
 import style from "./AuthPage.module.scss";
 
-type FormData = yup.InferType<typeof authPageSchema>;
+const schema = yup.object({
+    phone:
+        yup
+            .string()
+            .trim()
+            .required("Поле обязательно для заполнения")
+            .min(18, "Поле обязательно для заполнения"),
+    email:
+        yup
+            .string()
+            .trim()
+            .required("Поле обязательно для заполнения")
+            .email("Введите email")
+});
 
+type FormData = yup.InferType<typeof schema>;
 const AuthPage: FC = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
@@ -26,14 +38,13 @@ const AuthPage: FC = () => {
                 phone: authState.phone,
                 email: authState.email
             },
-            resolver: yupResolver(authPageSchema)
+            resolver: yupResolver(schema)
         });
-    const { handleSubmit} = methods;
+    const { handleSubmit } = methods;
 
     const onSubmit = (data: FormData): void => {
         dispatch(authReceveid(data));
-        dispatch(stepReceived(1));
-        navigate("/create");
+         navigate("/create");
     };
 
     return (
@@ -53,9 +64,10 @@ const AuthPage: FC = () => {
                             id="field-email"
                             name="email"
                             placeholder="tim.jennings@example.com"
+                            data-testid="input-email"
                         />
                         <Button
-                            id="button-start"
+                            data-testid="button-start"
                             theme="primary"
                             className={style.button}
                         >

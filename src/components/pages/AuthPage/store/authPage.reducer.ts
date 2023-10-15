@@ -1,18 +1,19 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import {IAuthState} from "src/components/Pages/AuthPage/store/types.ts";
+import {IAuthData, IAuthState} from "./types";
 
 const initialState: IAuthState = {
-    phone: "",
-    email: ""
+    authData: {
+        phone: "",
+        email: ""
+    }
 };
 
 const authSlice = createSlice({
     name: "auth",
     initialState,
     reducers: {
-        authReceveid: (state, action: PayloadAction<IAuthState>) => {
-            state.email = action.payload.email;
-            state.phone = action.payload.phone;
+        authReceveid: (state, action: PayloadAction<IAuthData>) => {
+            state.authData = action.payload;
         }
     }
 });

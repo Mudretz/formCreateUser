@@ -1,6 +1,6 @@
-import { FC } from "react";
+import folderIcon from "@/assets/folder.svg";
 import style from "./headerAuth.module.scss";
-import folderIcon from "../../../assets/folder.svg";
+import {FC} from "react";
 
 const HeaderAuth: FC = () => {
     return (

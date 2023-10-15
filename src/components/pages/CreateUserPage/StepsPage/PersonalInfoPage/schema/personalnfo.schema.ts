@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-export const personalInfoSchema = yup.object({
+export const personalInfoSchema = yup.object().shape({
     nickname: 
         yup
             .string()
@@ -26,8 +26,8 @@ export const personalInfoSchema = yup.object({
             .matches(/^[a-zA-Zа-яА-Я]*$/, "Допустимы только буквы")
             .max(50, "Максимальное колиство букв не более 30"),
     sex: yup.object({
-        value: yup.string().required("Выберите пол"),
-        label: yup.string().required("Выберите пол"),
-    }),
+        value: yup.string().trim().required("Выберите пол"),
+        label: yup.string().trim().required("Выберите пол"),
+    }).required("Выберите пол")
 });
 

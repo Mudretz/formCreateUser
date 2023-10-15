@@ -1,7 +1,7 @@
 import { FC, ComponentProps } from "react";
-import { useFormContext } from "react-hook-form";
-import classNames from "classnames";
-import style from "./FormInput.module.scss";
+import {useFormContext, useFormState} from "react-hook-form";
+import Input from "@/components/ui/Inputs/Input/Input.tsx";
+import FormInputLayout from "@/components/layouts/FormInput/FormInputLayout.tsx";
 
 type Props = {
     name: string,
@@ -10,23 +10,24 @@ type Props = {
 };
 
 const FormInput: FC<Props & ComponentProps<"input">> = ({ name, formText, showError= true, ...props }) => {
-    const { register, formState, getFieldState} = useFormContext();
-    const { error } = getFieldState(name, formState)
+    const { register, control } = useFormContext();
+    const { errors } = useFormState({
+        control: control
+    });
 
     return (
-        <div className={style.form}>
-            {formText &&
-                <p>{formText}</p>
-            }
-            <input
-                className={classNames(style.input)}
-                {...register(name)}
+        <FormInputLayout
+            name={name}
+            formText={formText}
+            showError={showError}
+            errors={errors}
+        >
+            <Input
                 {...props}
+                {...register(name)}
+                id={name}
             />
-            {showError &&
-                <p className={style.error}>{error?.message || "\u00A0"}</p>
-            }
-        </div>
+        </FormInputLayout>
     );
 };
 

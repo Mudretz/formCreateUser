@@ -1,50 +1,55 @@
 import { FC } from "react";
-import {Controller, useFormContext} from "react-hook-form";
-import MaskedInput from "react-text-mask";
+import { Controller, useFormContext, useFormState } from "react-hook-form";
+import { ErrorMessage } from "@hookform/error-message";
+import{ MaskedInputProps } from "react-text-mask";
+import InputMask from "@/components/ui/Inputs/InputMask/InputMask.tsx";
 import style from "./FormInputMask.module.scss";
 
 type Props = {
     name: string,
-    mask: Array<string | RegExp> | false,
     formText?: string,
     showError?: boolean,
-    placeholder?: string,
-    guide?: boolean,
-};
+} & MaskedInputProps;
 
-const FormInputMask: FC<Props> = ({
-    name,
-    mask,
-    formText,
-    showError= true,
-    placeholder,
-    guide
-}) => {
-    const { control, formState, getFieldState} = useFormContext();
-    const { error } = getFieldState(name, formState)
+const FormInputMask: FC<Props> = ({ name, formText, showError = true, ...props}) => {
+    const { control} = useFormContext();
+    const { errors } = useFormState({
+        control: control
+    });
 
     return (
         <div className={style.form}>
             {formText &&
-                <p>{formText}</p>
+                <label htmlFor={name}>{formText}</label>
             }
             <Controller
                 control={control}
                 name={name}
                 render={({ field: { onChange, value }}) => (
-                    <MaskedInput
+                    <InputMask
+                        id={name}
                         name={name}
-                        mask={mask}
-                        placeholder={placeholder}
-                        guide={guide}
                         value={value}
                         onChange={onChange}
-                        className={style.input}
+                        {...props}
                     />
                 )}
             />
             {showError &&
-                <p className={style.error}>{error?.message || "\u00A0"}</p>
+                <>
+                    {errors[name]
+                        ?
+                        <ErrorMessage
+                            errors={errors}
+                            name={name}
+                            render={({ message }) =>(
+                                <p className={style.error}>{message}</p>
+                            )}
+                        />
+                        :
+                        <p className={style.error}>{"\u00A0"}</p>
+                    }
+                </>
             }
         </div>
     );

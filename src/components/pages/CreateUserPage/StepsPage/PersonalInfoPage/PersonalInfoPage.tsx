@@ -1,39 +1,40 @@
 import { FC } from "react";
 import * as yup from "yup";
 import { useForm, FormProvider } from "react-hook-form";
-import { useAppSelector } from "src/store/hook/hook.ts";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { getCreateUserData } from "src/store/data/selector.ts";
-import { createUserReceived } from "src/store/data/data.ts";
+import { useAppSelector } from "src/store/hook/hook.ts";
 import { stepIncrease } from "src/store/step/step.ts";
 import { sexOptions } from "src/constants/sexOptions.ts";
-import { personalInfoSchema } from "src/constants/schema/personalnfoSchema.ts";
-import { useNavigate } from "react-router-dom";
+import { personalInfoSchema } from "./schema/personalnfo.schema.ts";
+import {getPersonalInfo} from "./store/selectors.ts";
+import { personalInfoReceived } from "./store/personalInfo.reducer.ts";
+import CustomSelect from "src/components/common/CustomSelect/CustomSelect.tsx";
 import Button from "../../../../common/button/Button.tsx";
-import SelectInput from "../../../../common/inputs/select/SelectInput.tsx";
 import FormInput from "src/components/common/FormInput/FormInput.tsx";
 import style from "./PersonalInfoPage.module.scss";
 
 export type FormData = yup.InferType<typeof personalInfoSchema>;
 
 const PersonalInfoPage:FC = () => {
-    const createUserData = useAppSelector(getCreateUserData);
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const createUserData = useAppSelector(getPersonalInfo);
+
     const methods = useForm<FormData>({
         values: {
             nickname: createUserData.nickname,
             name: createUserData.name,
-            surname: createUserData.sername,
+            surname: createUserData.surname,
             sex: createUserData.sex
         },
         resolver: yupResolver(personalInfoSchema)
     });
-    const { handleSubmit, formState: { errors } } = methods;
 
+    const { handleSubmit} = methods;
     const onSubmit = (data: FormData): void => {
-        dispatch(createUserReceived(data));
+        dispatch(personalInfoReceived(data));
         dispatch(stepIncrease());
     };
 
@@ -60,22 +61,20 @@ const PersonalInfoPage:FC = () => {
                         name="surname"
                         formText="Surname"
                     />
-                    <div className={`${style.form_item} ${style.select}`}>
-                        <p>Sex</p>
-                        <SelectInput
-                            id="field-sex"
-                            name="sex"
-                            placeholder="Не выбрано"
-                            options={sexOptions}
-                        />
-                        <p className={style.error}>{errors.sex?.label?.message || ""}</p>
-                    </div>
+                    <CustomSelect
+                        id="field-sex"
+                        name="sex"
+                        type="form"
+                        options={sexOptions}
+                        placeholder="Не выбрано"
+                        formText="Sex"
+                    />
                 </div>
                 <div className={style.buttons_group}>
                     <Button
                         id="button-back"
+                        theme="secondary"
                         onClick={goBack}
-                        theme={"secondary"}
                     >
                         Назад
                     </Button>

@@ -13,11 +13,10 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": ".",
+    "types": ["vitest/globals", "@testing-library/jest-dom"],
     "paths": {
-      "src/*": ["src/*"]
+      "@/*": ["./src/*"]
     },
-
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,

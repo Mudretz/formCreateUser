@@ -1,12 +1,12 @@
 import { FC, ReactNode } from "react";
-import { useAppSelector } from "src/store/hook/hook.ts";
-import { getStep } from "src/store/step/selector.ts";
 import classNames from "classnames";
-import PersonalInfoPage from "./StepsPage/PersonalInfoPage/PersonalInfoPage.tsx";
-import AdvantagesPage from "./StepsPage/AdvantagesPage/AdvantagesPage.tsx";
-import AboutMePage from "../AboutMePage/AboutMePage.tsx";
-import Stepper from "src/components/common/Stepper/Stepper.tsx";
 import style from "./CreateUserPage.module.scss";
+import {useAppSelector} from "@/store/hook/hook.ts";
+import {getStep} from "@/store/step/selector.ts";
+import PersonalInfoPage from "@/components/Pages/CreateUserPage/StepsPage/PersonalInfoPage/PersonalInfoPage.tsx";
+import AdvantagesPage from "@/components/Pages/CreateUserPage/StepsPage/AdvantagesPage/AdvantagesPage.tsx";
+import AboutMePage from "@/components/Pages/AboutMePage/AboutMePage.tsx";
+import Stepper from "@/components/common/Stepper/Stepper.tsx";
 
 const CreateUserPage: FC = () => {
     const activeStep = useAppSelector(getStep);

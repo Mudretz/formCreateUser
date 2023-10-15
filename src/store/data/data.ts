@@ -4,13 +4,14 @@ import { IAdvantagesData, IAuthData, ICreateUserData, IDataState } from "./type.
 const initialState: IDataState = {
     authData: {
         phone: "",
-        email: ""
+        email: "",
+        test: null
     },
     createUserData: {
         nickname: "",
         name: "",
         sername: "",
-        sex: undefined
+        sex: undefined,
     },
     advantagesData: {
         advantages: [

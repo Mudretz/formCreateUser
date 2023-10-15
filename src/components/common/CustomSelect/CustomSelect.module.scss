@@ -5,10 +5,6 @@
     @include form.formInput;
 }
 
-.input {
-    @include form.input;
-}
-
 .error {
     color: colors.$error;
 }

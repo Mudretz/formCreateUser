@@ -2,12 +2,16 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import dataReducer from "./data/data";
 import stepReducer from "./step/step";
 import { apiReduxQuery } from "../services/apiReduxQuery";
-import authReducer from "src/components/Pages/AuthPage/store/authPage.reducer.ts";
+// import authReducer from "src/components/Pages/AuthPage/store/authPage.reducer.ts";
+import personalInfoReducer
+    from "@/components/Pages/CreateUserPage/StepsPage/PersonalInfoPage/store/personalInfo.reducer.ts";
+import authReducer from "@/components/Pages/AuthPage/store/authPage.reducer.ts";
 
 const rootReducer = combineReducers({
     data: dataReducer,
     step: stepReducer,
     auth: authReducer,
+    personalInfo: personalInfoReducer,
     [apiReduxQuery.reducerPath]: apiReduxQuery.reducer
 });
 
