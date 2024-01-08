@@ -1,8 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import {
-    IPersonalInfoData,
-    IPersonalInfoState
-} from "./types.ts";
+import { IPersonalInfoData, IPersonalInfoState } from "./types";
 
 const initialState: IPersonalInfoState = {
     personalInfo: {
@@ -11,25 +8,25 @@ const initialState: IPersonalInfoState = {
         surname: "",
         sex: {
             value: "",
-            label: ""
-        }
-    }
+            label: "",
+        },
+    },
 };
 
 const personalInfoSlice = createSlice({
     name: "personalInfo",
     initialState,
     reducers: {
-        personalInfoReceived: (state, action: PayloadAction<IPersonalInfoData>) => {
+        personalInfoReceived: (
+            state,
+            action: PayloadAction<IPersonalInfoData>,
+        ) => {
             state.personalInfo = action.payload;
         },
-    }
+    },
 });
 
 const { reducer: personalInfoReducer, actions } = personalInfoSlice;
-export const {
-    personalInfoReceived
-} = actions;
+export const { personalInfoReceived } = actions;
 
 export default personalInfoReducer;
-

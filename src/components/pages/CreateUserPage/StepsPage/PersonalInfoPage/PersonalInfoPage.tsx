@@ -4,14 +4,14 @@ import { useForm, FormProvider } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useAppSelector } from "src/store/hook/hook.ts";
-import { stepIncrease } from "src/store/step/step.ts";
+import { useAppSelector } from "@src/app/store/hooks/index.ts";
+import { stepIncrease } from "@src/app/store/step/step.ts";
 import { sexOptions } from "src/constants/sexOptions.ts";
 import { personalInfoSchema } from "./schema/personalnfo.schema.ts";
 import {getPersonalInfo} from "./store/selectors.ts";
 import { personalInfoReceived } from "./store/personalInfo.reducer.ts";
 import CustomSelect from "src/components/common/CustomSelect/CustomSelect.tsx";
-import Button from "../../../../common/button/Button.tsx";
+import Button from "../../../../../shared/components/ui/Button/index.tsx";
 import FormInput from "src/components/common/FormInput/FormInput.tsx";
 import style from "./PersonalInfoPage.module.scss";
 

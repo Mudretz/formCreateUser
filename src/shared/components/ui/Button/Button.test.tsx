@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from '@testing-library/user-event'
-import Button from "@/components/common/button/Button.tsx";
+import Button from ".";
+
 test("Тестирование Button", async () => {
     const spy = vi.fn();
     render(

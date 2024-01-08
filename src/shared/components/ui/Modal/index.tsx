@@ -1,20 +1,20 @@
-import React, { FC, PropsWithChildren } from "react";
+import { FC, PropsWithChildren } from "react";
 import classNames from "classnames";
 import styles from "./modalWindow.module.scss";
 
 type Props = {
     active: boolean,
-    onHide: React.Dispatch<React.SetStateAction<boolean>>,
+    onHide: () => void,
 };
 
-const Modal: FC<PropsWithChildren<Props>> = ({ active, onHide, children }) => {
+export const Modal: FC<PropsWithChildren<Props>> = ({ active, onHide, children }) => {
     return (
         <div
             className={
                 classNames(styles.modal,
                     { [styles.modal_active]: active })
                 }
-            onClick={() => onHide(false)}
+            onClick={onHide}
         >
             <div
                 className={styles.modal_content} 
@@ -25,5 +25,3 @@ const Modal: FC<PropsWithChildren<Props>> = ({ active, onHide, children }) => {
         </div>
     );
 };
- 
-export default Modal;

@@ -1,4 +1,4 @@
-import { ISexOption } from "../store/data/type.data";
+import { ISexOption } from "../app/store/data/type.data";
 
 enum Sex {
     man = "Man",

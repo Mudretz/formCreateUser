@@ -1,5 +1,5 @@
 import { FC, Fragment } from "react";
-import Step from "src/components/ui/Step/Step.tsx";
+import Step from "@src/shared/components/ui/Step/Step";
 import style from "./Stepper.module.scss";
 
 type Props = {

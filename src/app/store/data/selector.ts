@@ -1,4 +1,4 @@
-import { RootState } from "../store";
+import { RootState } from "..";
 import { IAdvantagesData, IAuthData, ICreateUserData, IDataState } from "./type.data";
 
 export const getState = (state: RootState): IDataState => {

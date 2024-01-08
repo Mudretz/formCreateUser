@@ -1,4 +1,4 @@
-import { IAdvantagesInputs } from "../store/data/type.data";
+import { IAdvantagesInputs } from "../app/store/data/type.data";
 
 export const transformToArrayString = (data: IAdvantagesInputs[]): string[] => {
     const result: string[] = [];

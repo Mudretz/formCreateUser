@@ -1,6 +1,6 @@
 import { FC, ComponentProps } from "react";
 import classNames from "classnames";
-import style from "./Button.module.scss";
+import style from "./styles.module.scss";
 
 type Props = {
     theme: "primary" | "secondary"

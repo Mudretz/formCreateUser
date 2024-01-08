@@ -5,13 +5,15 @@ import { useNavigate } from "react-router-dom";
 import {useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { getAuthState } from "./store/selectors.ts";
-import { authReceveid } from "./store/authPage.reducer.ts";
+
 import {phoneMask} from "@/constants/mask/inputMasks.ts";
 import HeaderAuth from "@/components/layouts/HeaderAuth/HeaderAuth.tsx";
 import FormInputMask from "@/components/common/FormPhoneInput/FormInputMask.tsx";
 import FormInput from "@/components/common/FormInput/FormInput.tsx";
 import Button from "@/components/common/button/Button.tsx";
 import style from "./AuthPage.module.scss";
+import { authReceveid } from "./store/authPage.reducer.ts";
+
 
 const schema = yup.object({
     phone:

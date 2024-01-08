@@ -1,7 +1,8 @@
 import './App.scss'
+
+import Container from './components/layouts/Container/Container';
+import AuthPage from './components/pages/AuthPage/AuthPage';
 import { Routes, Route } from "react-router-dom";
-import Container from "@/components/layouts/Container/Container.tsx";
-import AuthPage from "@/components/Pages/AuthPage/AuthPage.tsx";
 
 function App() {
 
