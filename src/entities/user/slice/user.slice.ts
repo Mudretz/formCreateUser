@@ -1,8 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { UserState } from "./types";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import {
+    UserAdvantages,
+    UserContacts,
+    UserInfo,
+    UserState,
+} from "./user.types";
 
 const initialState: UserState = {
-    contacts: {
+    userContacts: {
         phone: "",
         email: "",
     },
@@ -12,23 +17,37 @@ const initialState: UserState = {
         surname: "",
         sex: null,
     },
-    advantages: {
+    userAdvantages: {
         advantages: [],
         checkboxes: [],
         radioOption: "",
     },
-    aboutMe: "",
+    userAbout: "",
 };
 
 const userSlice = createSlice({
     name: "userSlice",
     initialState,
     reducers: {
-
-    }
+        userContactsReceived: (state, action: PayloadAction<UserContacts>) => {
+            state.userContacts = action.payload;
+        },
+        userInfoReceived: (state, action: PayloadAction<UserInfo>) => {
+            state.userInfo = action.payload;
+        },
+        userAdvantagesReceived: (
+            state,
+            action: PayloadAction<UserAdvantages>,
+        ) => {
+            state.userAdvantages = action.payload;
+        },
+        userAboutReceived: (state, action: PayloadAction<string>) => {
+            state.userAbout = action.payload;
+        },
+    },
 });
 
 export const {
     reducer: userReducer,
-    actions: {}
+    actions: {},
 } = userSlice;

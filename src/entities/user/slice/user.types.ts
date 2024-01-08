@@ -1,13 +1,13 @@
 import { IOption } from "@src/components/common/CustomSelect/CustomSelect";
 
 export interface UserState {
-    contacts: Contacts;
+    userContacts: UserContacts;
     userInfo: UserInfo;
-    advantages: Advantages;
-    aboutMe: string;
+    userAdvantages: UserAdvantages;
+    userAbout: string;
 }
 
-export interface Contacts {
+export interface UserContacts {
     phone: string;
     email: string;
 }
@@ -19,7 +19,7 @@ export interface UserInfo {
     sex: IOption | null;
 }
 
-export interface Advantages {
+export interface UserAdvantages {
     advantages: string[];
     checkboxes: number[];
     radioOption: string;
