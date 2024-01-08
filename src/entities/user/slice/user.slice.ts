@@ -49,5 +49,10 @@ const userSlice = createSlice({
 
 export const {
     reducer: userReducer,
-    actions: {},
+    actions: {
+        userContactsReceived,
+        userInfoReceived,
+        userAdvantagesReceived,
+        userAboutReceived,
+    },
 } = userSlice;
