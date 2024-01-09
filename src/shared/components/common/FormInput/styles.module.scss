@@ -1,4 +1,3 @@
-@use "src/constants/colors";
 @use "src/constants/mixin/form";
 
 .form {
@@ -10,5 +9,5 @@
 }
 
 .error {
-    color: colors.$error;
+    color: var(--color-error);
 }

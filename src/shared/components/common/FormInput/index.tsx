@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren } from "react";
 import { FieldErrors } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
-import style from "./FormInputLayout.module.scss";
+import styles from "./styles.module.scss";
 
 type ErrorType = {
     showError?: false,
@@ -12,16 +12,16 @@ type ErrorType = {
 
 type Props = {
     name: string,
-    formText?: string,
+    label?: string,
     showError?: boolean,
 } & ErrorType;
 
-const FormInputLayout: FC<PropsWithChildren<Props>> = ({ name, formText, children, ...props }) => {
+export const FormInput: FC<PropsWithChildren<Props>> = ({ name, label, children, ...props }) => {
 
     return (
-        <div className={style.form}>
-            {formText &&
-                <label htmlFor={name}>{formText}</label>
+        <div className={styles.form}>
+            {label &&
+                <label htmlFor={name}>{label}</label>
             }
             {children}
             {props.showError &&
@@ -32,16 +32,14 @@ const FormInputLayout: FC<PropsWithChildren<Props>> = ({ name, formText, childre
                             errors={props.errors}
                             name={name}
                             render={({ message }) =>(
-                                <p className={style.error}>{message}</p>
+                                <p className={styles.error}>{message}</p>
                             )}
                         />
                         :
-                        <p className={style.error}>{"\u00A0"}</p>
+                        <p className={styles.error}>{"\u00A0"}</p>
                     }
                 </>
             }
         </div>
     );
 };
-
-export default FormInputLayout;

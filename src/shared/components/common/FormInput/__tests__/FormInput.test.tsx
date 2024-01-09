@@ -1,18 +1,20 @@
+
 import { act, render, renderHook, screen } from "@testing-library/react";
 import { useForm, FormProvider } from "react-hook-form";
-import FormInputLayout from "@/components/layouts/FormInput/FormInputLayout.tsx";
+import { FormInput } from "..";
 
 type FormValues = {
     test: string
 };
+
 describe("Тестирование FormInputLayout", () => {
     test("Базовое тестирование", async () => {
         const { result: formHookReturn} = renderHook(() => useForm<FormValues>());
         const { rerender } = render(
             <FormProvider {...formHookReturn.current}>
-                <FormInputLayout
+                <FormInput
                     name={"test"}
-                    formText={"Текстовое поле"}
+                    label={"Текстовое поле"}
                     showError={true}
                     errors={formHookReturn.current.formState.errors}
                 >
@@ -20,7 +22,7 @@ describe("Тестирование FormInputLayout", () => {
                         id={"test"}
                         {...formHookReturn.current.register("test")}
                     />
-                </FormInputLayout>
+                </FormInput>
             </FormProvider>
         );
         const inp = screen.getByRole("textbox");
@@ -34,9 +36,9 @@ describe("Тестирование FormInputLayout", () => {
 
         rerender(
             <FormProvider {...formHookReturn.current}>
-                <FormInputLayout
+                <FormInput
                     name={"test"}
-                    formText={"Текстовое поле"}
+                    label={"Текстовое поле"}
                     showError={true}
                     errors={formHookReturn.current.formState.errors}
                 >
@@ -44,14 +46,14 @@ describe("Тестирование FormInputLayout", () => {
                         id={"test"}
                         {...formHookReturn.current.register("test")}
                     />
-                </FormInputLayout>
+                </FormInput>
             </FormProvider>
         );
         expect(await screen.findByText("errorValues")).toBeInTheDocument();
 
         rerender(
             <FormProvider {...formHookReturn.current}>
-                <FormInputLayout
+                <FormInput
                     name={"test"}
                     showError={false}
                 >
@@ -59,7 +61,7 @@ describe("Тестирование FormInputLayout", () => {
                         id={"test"}
                         {...formHookReturn.current.register("test")}
                     />
-                </FormInputLayout>
+                </FormInput>
             </FormProvider>
         );
         expect(screen.queryByText("errorValues")).toBeNull();
