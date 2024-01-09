@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from '@testing-library/user-event'
-import Input from "./Input.tsx";
+import Input from "..";
+
 test("Тестирование Input", async () => {
     const onChange = vi.fn();
     render(

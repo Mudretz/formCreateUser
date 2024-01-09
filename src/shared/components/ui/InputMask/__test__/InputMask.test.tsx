@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { phoneMask } from "@/constants/mask/inputMasks.ts";
+import { phoneMask } from "@src/shared/constants/masks";
 import userEvent from '@testing-library/user-event'
-import InputMask from "@/components/ui/Inputs/InputMask/InputMask.tsx";
+import InputMask from "..";
+
 test("Тестирование InputMask", async () => {
     const onChange = vi.fn();
     render(

@@ -1,13 +1,13 @@
 import { ComponentProps, forwardRef } from "react";
 import classNames from "classnames";
-import style from "./Input.module.scss";
+import styles from "./styles.module.scss";
 
-const Input= forwardRef<HTMLInputElement,ComponentProps<"input">>((props, ref) => {
+const Input= forwardRef<HTMLInputElement,ComponentProps<"input">>(({ className, ...props}, ref) => {
     return (
         <input
             {...props}
             ref={ref}
-            className={classNames(style.input, props.className)}
+            className={classNames(styles.input, className)}
         />
     );
 });

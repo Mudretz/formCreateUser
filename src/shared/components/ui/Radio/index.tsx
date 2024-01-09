@@ -3,13 +3,13 @@ import { useFormContext } from "react-hook-form";
 import style from "./radioGroup.module.scss";
 
 type Props = {
-    name: string,
-    nameInput: string,
-    data: number[],
-    errorMessage: string
+    name: string;
+    nameInput: string;
+    data: number[];
+    errorMessage: string;
 };
 
-const RadioGroup: FC<Props> = ({ name, nameInput, data, errorMessage }) => {
+export const Radio: FC<Props> = ({ name, nameInput, data, errorMessage }) => {
     const { register } = useFormContext();
 
     return (
@@ -20,7 +20,7 @@ const RadioGroup: FC<Props> = ({ name, nameInput, data, errorMessage }) => {
                     <label key={item}>
                         <input
                             id={`field-radio-group-option-${index + 1}`}
-                            type="radio"
+                            type='radio'
                             value={item}
                             {...register(nameInput)}
                             className={style.input}
@@ -33,5 +33,3 @@ const RadioGroup: FC<Props> = ({ name, nameInput, data, errorMessage }) => {
         </div>
     );
 };
- 
-export default RadioGroup;

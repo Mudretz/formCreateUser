@@ -1,5 +1,3 @@
-@import "../../../../constants/colors.scss";
-
 .form_item {
     margin-top: 14px;
     display: flex;
@@ -15,9 +13,9 @@
 
 .input {
     margin-right: 10px;
-    accent-color: $purple;
+    accent-color: var(--color-purple);
 }
 
 .error {
-    color: $error;
+    color: var(--color-error);
 }

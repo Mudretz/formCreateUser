@@ -1,5 +1,3 @@
-@use "src/constants/colors";
-
 .step {
     display: flex;
     flex-direction: column;
@@ -10,18 +8,18 @@
 .stepItem {
     width: 16px;
     height: 16px;
-    background-color: colors.$purple;
+    background-color: var(--color-purple);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
 
     &.disable {
-        background-color: colors.$stepColor;
+        background-color: var(--color-step);
     }
 
     .icon {
-        color: colors.$white;
+        color: var(--color-white);
     }
 
     .check {
@@ -37,10 +35,10 @@
     flex: 1 1 auto;
     margin: -8px;
     height: 8px;
-    background-color: colors.$grey;
+    background-color: var(--color-grey);
     z-index: 1;
 
     &.active {
-        background-color: colors.$purple;
+        background-color: var(--color-purple);
     }
 }

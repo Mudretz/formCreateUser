@@ -1,10 +1,10 @@
 import { FC, Fragment } from "react";
-import Step from "@src/shared/components/ui/Step/Step";
+import Step from "@src/shared/components/ui/Step";
 import style from "./Stepper.module.scss";
 
 type Props = {
-    stepsCount: number,
-    activeStep: number
+    stepsCount: number;
+    activeStep: number;
 };
 
 const Stepper: FC<Props> = ({ stepsCount, activeStep }) => {
