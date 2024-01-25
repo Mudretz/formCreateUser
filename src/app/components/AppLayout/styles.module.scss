@@ -1,0 +1,13 @@
+.layout {
+    padding-top: 24px;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-grey);
+    font-size: var(--font-medium);
+    display: flex;
+    justify-content: center;
+
+    @media screen and (max-width: 450px) {
+        padding-top: 0;
+    };
+}

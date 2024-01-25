@@ -1,9 +1,19 @@
-@import './shared/styles/variables.sass';
+@import './shared/styles/variables.scss';
 
 * {
 	padding: 0;
 	margin: 0;
 	border: none;
+}
+
+@font-face {
+    font-family: "SB Sans Interface";
+    src: url(./assets/fonts/SBSansInterface-Regular.woff2) format("woff2");
+}
+
+* {
+    font-family: "SB Sans Interface", serif;
+    color: var(--color-text-black);
 }
 
 *,
