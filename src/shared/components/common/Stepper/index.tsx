@@ -1,17 +1,17 @@
 import { FC, Fragment } from "react";
 import Step from "@src/shared/components/ui/Step";
-import style from "./Stepper.module.scss";
+import styles from "./styles.module.scss";
 
 type Props = {
     stepsCount: number;
     activeStep: number;
 };
 
-const Stepper: FC<Props> = ({ stepsCount, activeStep }) => {
+export const Stepper: FC<Props> = ({ stepsCount, activeStep }) => {
     const data = [...Array(stepsCount)].map((_, i) => i + 1);
 
     return (
-        <div className={style.stepper}>
+        <div className={styles.stepper}>
             {data.map((item) => (
                 <Fragment key={item}>
                     <Step
@@ -24,5 +24,3 @@ const Stepper: FC<Props> = ({ stepsCount, activeStep }) => {
         </div>
     );
 };
-
-export default Stepper;

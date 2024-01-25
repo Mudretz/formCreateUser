@@ -1,0 +1,14 @@
+@use "src/constants/colors";
+@use "src/constants/mixin/form";
+
+.form {
+    @include form.formInput;
+}
+
+.input {
+    @include form.input;
+}
+
+.error {
+    color: colors.$error;
+}

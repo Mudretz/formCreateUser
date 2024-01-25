@@ -1,23 +1,5 @@
-@import "../../../../constants/colors.scss";
-
-.form_item {
-    margin-top: 14px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 8px;
-    min-height: 110px;
-}
-
-.input_list {
-    display: flex;
-    flex-direction: column;
-}
-
 .input {
     margin-right: 10px;
-    accent-color: $purple;
+    accent-color: var(--color-purple);
 }
 
-.error {
-    color: $error;
-}

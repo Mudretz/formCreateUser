@@ -1,15 +1,14 @@
-import { FC } from "react";
+import { ComponentProps, FC } from "react";
 import errorIcon from "../../../assets/error.svg";
 import Modal from "../../../../components/common/modalWindow/ModalWindow";
 import Button from "../../ui/Button";
 import iconClose from "../../../assets/iconClose.svg";
 import styles from "./styles.module.scss";
 
-type Props = {
+interface Props extends Pick<ComponentProps<"button">, "onClick"> {
     active: boolean;
     onHide: () => void;
-    onClick?: () => void;
-};
+}
 
 export const ModalError: FC<Props> = ({ active, onHide, onClick }) => {
     return (
@@ -21,7 +20,7 @@ export const ModalError: FC<Props> = ({ active, onHide, onClick }) => {
                         className={styles.close}
                         src={iconClose}
                         alt='закрыть'
-                        onClick={onClick}
+                        onClick={onHide}
                     />
                 </div>
                 <img className={styles.error} src={errorIcon} alt='ошибка' />

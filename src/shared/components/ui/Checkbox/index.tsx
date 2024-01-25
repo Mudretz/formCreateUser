@@ -1,35 +1,15 @@
-import { FC } from "react";
-import { useFormContext } from "react-hook-form";
+import { ComponentProps, FC } from "react";
+import classNames from "classnames";
 import styles from "./styles.module.scss";
 
-type Props = {
-    name: string,
-    nameInput: string,
-    data: number[],
-    errorMessage: string
-};
+interface Props extends ComponentProps<"input"> {}
 
-export const Checkbox: FC<Props> = ({ name, nameInput, data, errorMessage }) => {
-    const { register } = useFormContext();
-
+export const Checkbox: FC<Props> = ({ className, ...props }) => {
     return (
-        <div className={styles.form_item}>
-            <p>{name}</p>
-            <div className={styles.input_list}>
-                {data.map((item, index) => (
-                    <label key={item}>
-                        <input
-                            id={`field-checkbox-group-option-${index + 1}`}
-                            type="checkbox"
-                            value={item}
-                            className={styles.input}
-                            {...register(nameInput)}
-                        />
-                        {item}
-                    </label>
-                ))}
-            </div>
-            <p className={styles.error}>{errorMessage}</p>
-        </div>
+        <input
+            type='checkbox'
+            className={classNames(styles.input, className)}
+            {...props}
+        />
     );
 };

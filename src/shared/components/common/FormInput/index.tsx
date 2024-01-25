@@ -1,14 +1,7 @@
 import { FC, PropsWithChildren } from "react";
-import { FieldErrors } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
+import { ErrorType } from "@src/shared/types/common";
 import styles from "./styles.module.scss";
-
-type ErrorType = {
-    showError?: false,
-} | {
-    showError?: true,
-    errors: FieldErrors
-};
 
 type Props = {
     name: string,

@@ -1,0 +1,16 @@
+.form {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    min-height: 110px;
+}
+
+.input_list {
+    display: flex;
+    flex-direction: column;
+}
+
+.error {
+    color: var(--color-error);
+}
