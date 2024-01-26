@@ -1,11 +1,7 @@
-@use "src/constants/mixin/form";
+@use "/src/shared/styles/mixin/form";
 
 .form {
     @include form.formInput;
-}
-
-.input {
-    @include form.input;
 }
 
 .error {

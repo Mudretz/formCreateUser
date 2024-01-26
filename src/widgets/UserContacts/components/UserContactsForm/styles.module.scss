@@ -1,0 +1,22 @@
+@use "/src/shared/styles/mixin/form";
+
+.main {
+    font-size: var(--font-medium);
+}
+
+.form {
+    margin-top: 24px;
+    @include form.formList;
+
+    @media screen and (max-width: 450px) {
+        width: 100%;
+    }
+}
+
+.button {
+    margin-top: 24px;
+
+    @media screen and (max-width: 450px) {
+        width: 100%;
+    }
+}

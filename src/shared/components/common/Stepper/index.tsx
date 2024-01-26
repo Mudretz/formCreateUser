@@ -1,5 +1,5 @@
 import { FC, Fragment } from "react";
-import Step from "@src/shared/components/ui/Step";
+import { Step } from "../../ui";
 import styles from "./styles.module.scss";
 
 type Props = {

@@ -3,7 +3,7 @@ import { Controller, useFormContext, useFormState } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import{ MaskedInputProps } from "react-text-mask";
 import InputMask from "../../ui/InputMask";
-import style from "./FormInputMask.module.scss";
+import styles from "./styles.module.scss";
 
 interface Props extends MaskedInputProps {
     name: string,
@@ -18,7 +18,7 @@ export const FormInputMask: FC<Props> = ({ name, formText, showError = true, ...
     });
 
     return (
-        <div className={style.form}>
+        <div className={styles.form}>
             {formText &&
                 <label htmlFor={name}>{formText}</label>
             }
@@ -43,11 +43,11 @@ export const FormInputMask: FC<Props> = ({ name, formText, showError = true, ...
                             errors={errors}
                             name={name}
                             render={({ message }) =>(
-                                <p className={style.error}>{message}</p>
+                                <p className={styles.error}>{message}</p>
                             )}
                         />
                         :
-                        <p className={style.error}>{"\u00A0"}</p>
+                        <p className={styles.error}>{"\u00A0"}</p>
                     }
                 </>
             }

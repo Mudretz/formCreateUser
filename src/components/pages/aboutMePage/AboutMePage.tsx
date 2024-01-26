@@ -10,8 +10,8 @@ import { getAboutMeData, getState } from "../../../app/store/data/selector.ts";
 import { stepDecrease } from "../../../app/store/step/step.ts";
 import { useNavigate } from "react-router-dom";
 import Button from "../../../shared/components/ui/Button/index.tsx";
-import ModalSuccess from "../../../shared/components/common/modalSuccess/ModalSuccess.tsx";
-import ModalError from "../../../shared/components/common/modalError/ModalError.tsx";
+import ModalSuccess from "../../../shared/components/common/ModalSuccess/ModalSuccess.tsx";
+import ModalError from "../../../shared/components/common/ModalError/ModalError.tsx";
 import style from "./AboutMePage.module.scss";
 import { transformToArrayString } from "../../../utils/transformToArrayString.ts";
 

@@ -1,70 +1,26 @@
-
-import { act, render, renderHook, screen } from "@testing-library/react";
+import { render, renderHook, screen } from "@testing-library/react";
 import { useForm, FormProvider } from "react-hook-form";
+import userEvent from '@testing-library/user-event'
 import { FormInput } from "..";
 
 type FormValues = {
     test: string
 };
-
-describe("Тестирование FormInputLayout", () => {
+describe("Тестирование FormInput", () => {
     test("Базовое тестирование", async () => {
         const { result: formHookReturn} = renderHook(() => useForm<FormValues>());
-        const { rerender } = render(
+        render(
             <FormProvider {...formHookReturn.current}>
                 <FormInput
-                    name={"test"}
                     label={"Текстовое поле"}
-                    showError={true}
-                    errors={formHookReturn.current.formState.errors}
-                >
-                    <input
-                        id={"test"}
-                        {...formHookReturn.current.register("test")}
-                    />
-                </FormInput>
+                    name={"test"}
+                />
             </FormProvider>
         );
         const inp = screen.getByRole("textbox");
         expect(inp).toBeInTheDocument();
-        expect(screen.getByLabelText("Текстовое поле")).toBeInTheDocument();
-        act(() => {
-            formHookReturn.current.setError("test", {
-                message: "errorValues"
-            });
-        });
-
-        rerender(
-            <FormProvider {...formHookReturn.current}>
-                <FormInput
-                    name={"test"}
-                    label={"Текстовое поле"}
-                    showError={true}
-                    errors={formHookReturn.current.formState.errors}
-                >
-                    <input
-                        id={"test"}
-                        {...formHookReturn.current.register("test")}
-                    />
-                </FormInput>
-            </FormProvider>
-        );
-        expect(await screen.findByText("errorValues")).toBeInTheDocument();
-
-        rerender(
-            <FormProvider {...formHookReturn.current}>
-                <FormInput
-                    name={"test"}
-                    showError={false}
-                >
-                    <input
-                        id={"test"}
-                        {...formHookReturn.current.register("test")}
-                    />
-                </FormInput>
-            </FormProvider>
-        );
-        expect(screen.queryByText("errorValues")).toBeNull();
-        expect(screen.queryByLabelText("Текстовое поле")).toBeNull();
+        await userEvent.type(inp, "test form");
+        expect(inp).toHaveDisplayValue("test form");
+        expect(formHookReturn.current.getValues("test")).toEqual("test form");
     })
 })

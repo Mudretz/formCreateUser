@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useFormContext } from "react-hook-form";
-import style from "./radioGroup.module.scss";
+import styles from "./styles.module.scss";
 
 type Props = {
     name: string;
@@ -13,9 +13,9 @@ export const Radio: FC<Props> = ({ name, nameInput, data, errorMessage }) => {
     const { register } = useFormContext();
 
     return (
-        <div className={style.form_item}>
+        <div className={styles.form_item}>
             <p>{name}</p>
-            <div className={style.input_list}>
+            <div className={styles.input_list}>
                 {data.map((item, index) => (
                     <label key={item}>
                         <input
@@ -23,13 +23,13 @@ export const Radio: FC<Props> = ({ name, nameInput, data, errorMessage }) => {
                             type='radio'
                             value={item}
                             {...register(nameInput)}
-                            className={style.input}
+                            className={styles.input}
                         />
                         {item}
                     </label>
                 ))}
             </div>
-            <p className={style.error}>{errorMessage}</p>
+            <p className={styles.error}>{errorMessage}</p>
         </div>
     );
 };

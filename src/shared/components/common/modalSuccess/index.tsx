@@ -1,8 +1,8 @@
 import { FC } from "react";
-import successIcon from "../../../assets/success.svg";
+import { Button } from "../../ui";
+import SuccesIcon from "@src/shared/assets/success.svg?react";
 import Modal from "../../../../components/common/modalWindow/ModalWindow";
-import style from "./modalSucces.module.scss";
-import Button from "../../ui/Button";
+import style from "./styles.module.scss";
 
 type Props = {
     active: boolean;
@@ -16,7 +16,7 @@ const ModalSuccess: FC<Props> = ({ active, onHide, message, onClick }) => {
         <Modal active={active} onHide={onHide}>
             <div className={style.container}>
                 <p>{message}</p>
-                <img src={successIcon} alt='успешно' />
+                <SuccesIcon />
                 <Button id='button-to-main' onClick={onClick} theme='primary'>
                     На главную
                 </Button>

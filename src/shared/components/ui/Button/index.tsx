@@ -6,7 +6,7 @@ interface Props extends ComponentProps<"button"> {
     theme: "primary" | "secondary";
 }
 
-const Button: FC<Props> = ({ theme, id, className, ...props }) => {
+export const Button: FC<Props> = ({ theme, id, className, ...props }) => {
     const randomId = useId();
     return (
         <button
@@ -21,5 +21,3 @@ const Button: FC<Props> = ({ theme, id, className, ...props }) => {
         </button>
     );
 };
-
-export default Button;

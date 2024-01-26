@@ -1,5 +1,4 @@
-@use "src/constants/colors";
-@use "src/constants/mixin/form";
+@use "/src/shared/styles/mixin/form";
 
 .input {
     @include form.input;

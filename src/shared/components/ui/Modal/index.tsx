@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren } from "react";
 import classNames from "classnames";
-import styles from "./modalWindow.module.scss";
+import styles from "./styles.module.scss";
 
 type Props = {
     active: boolean,

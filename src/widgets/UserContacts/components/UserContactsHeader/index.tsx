@@ -1,7 +1,8 @@
 import { FC } from "react";
-import styles from "./styles.module.scss";
-import FolderIcon from "@src/shared/assets/folder.svg?react";
 import { uniqueId } from "lodash";
+import FolderIcon from "@src/shared/assets/folder.svg?react";
+import styles from "./styles.module.scss";
+
 
 const linkList = [
     {

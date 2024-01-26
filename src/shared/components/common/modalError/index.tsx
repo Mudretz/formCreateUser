@@ -1,9 +1,10 @@
 import { ComponentProps, FC } from "react";
 import errorIcon from "../../../assets/error.svg";
 import Modal from "../../../../components/common/modalWindow/ModalWindow";
-import Button from "../../ui/Button";
+
 import iconClose from "../../../assets/iconClose.svg";
 import styles from "./styles.module.scss";
+import { Button } from "../../ui";
 
 interface Props extends Pick<ComponentProps<"button">, "onClick"> {
     active: boolean;

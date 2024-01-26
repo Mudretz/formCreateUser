@@ -12,7 +12,7 @@ import {getPersonalInfo} from "./store/selectors.ts";
 import { personalInfoReceived } from "./store/personalInfo.reducer.ts";
 import CustomSelect from "src/components/common/CustomSelect/CustomSelect.tsx";
 import Button from "../../../../../shared/components/ui/Button/index.tsx";
-import FormInput from "src/components/common/FormInput/FormInput.tsx";
+import FormInput from "@src/shared/components/common/FormInput/index.tsx";
 import style from "./PersonalInfoPage.module.scss";
 
 export type FormData = yup.InferType<typeof personalInfoSchema>;

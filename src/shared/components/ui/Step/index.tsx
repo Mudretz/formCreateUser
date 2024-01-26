@@ -7,7 +7,7 @@ type Props = {
     stepsCount: number;
     activeStep: number;
 };
-const Step: FC<Props> = ({ currentStep, stepsCount, activeStep }) => {
+export const Step: FC<Props> = ({ currentStep, stepsCount, activeStep }) => {
     const getStepIcon = (
         currentStep: number,
         activeStep: number,
@@ -50,5 +50,3 @@ const Step: FC<Props> = ({ currentStep, stepsCount, activeStep }) => {
         </>
     );
 };
-
-export default Step;

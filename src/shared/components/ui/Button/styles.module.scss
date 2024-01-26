@@ -1,18 +1,16 @@
-@import "../../../constants/colors.scss";
-
 .button {
     width: fit-content;
     padding: 12px 16px;
     border-radius: 4px;
 
     &.primary {
-        background-color: $purple;
-        color: $white;
+        background-color: var(--color-purple);
+        color: var(--color-white);
     }
 
     &.secondary {
-        background-color: $white;
-        color: $purple;
-        border: 1.5px solid $purple;
+        background-color: var(--color-white);
+        color: var(--color-purple);
+        border: 1.5px solid var(--color-purple);
     }
 }
