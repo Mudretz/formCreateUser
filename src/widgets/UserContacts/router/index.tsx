@@ -2,11 +2,13 @@ import { RouteObject } from "react-router-dom";
 import { lazy } from "react";
 
 export const userContactsRouter = (): RouteObject[] => {
-    const UserContacts = lazy(() => import(".."));
+    const UserContactsLayout = lazy(
+        () => import("../components/UserContactsLayout"),
+    );
     return [
         {
             path: "",
-            element: <UserContacts />,
+            element: <UserContactsLayout />,
         },
     ];
 };

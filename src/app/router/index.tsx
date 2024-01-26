@@ -3,7 +3,7 @@ import {
     RouteObject,
 } from "react-router-dom";
 import { AppLayout } from "../components/AppLayout";
-import { userContactsRouter } from "@src/widgets/UserContacts/router";
+import { userContactsRouter } from "@src/widgets/UserContacts";
 
 export const appRouter = () => {
     const routes: RouteObject[] = [...userContactsRouter()];
