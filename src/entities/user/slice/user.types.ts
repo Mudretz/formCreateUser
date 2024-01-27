@@ -1,4 +1,4 @@
-import { IOption } from "@src/components/common/CustomSelect/CustomSelect";
+import { Option } from "@src/shared/types/common";
 
 export interface UserState {
     userContacts: UserContacts;
@@ -16,7 +16,7 @@ export interface UserInfo {
     nickname: string;
     name: string;
     surname: string;
-    sex: IOption | null;
+    sex: Option | null;
 }
 
 export interface UserAdvantages {

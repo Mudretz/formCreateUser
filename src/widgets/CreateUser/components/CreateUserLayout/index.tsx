@@ -3,12 +3,13 @@ import styles from "./styles.module.scss";
 import classNames from "classnames";
 import { Stepper } from "@src/shared/components/common";
 import { useAppSelector } from "@src/app/store/hooks";
-import { getActiveStep } from "../../slice/createUSer.selector";
+import { getActiveStep } from "../../slice/createUser.selector";
+import { UserInfoStep } from "../UserInfoStep";
 
 const getPage = (activeStep: number): ReactNode => {
     switch (activeStep) {
         case 1: {
-            return null;
+            return <UserInfoStep />;
         }
         case 2: {
             return null;

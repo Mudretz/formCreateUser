@@ -1,0 +1,17 @@
+@use "/src/shared/styles/mixin/form";
+
+.form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    row-gap: 60px;
+}
+
+.formList {
+    @include form.formList;
+}
+
+.buttons_group {
+    display: flex;
+    justify-content: space-between;
+}
