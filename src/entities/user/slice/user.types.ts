@@ -20,7 +20,13 @@ export interface UserInfo {
 }
 
 export interface UserAdvantages {
-    advantages: string[];
-    checkboxes: number[];
+    advantages: {
+        advantage: string
+    }[];
+    checkboxes: {
+        1: boolean,
+        2: boolean,
+        3: boolean,
+    };
     radioOption: string;
 }

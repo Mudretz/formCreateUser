@@ -5,6 +5,7 @@ import { Stepper } from "@src/shared/components/common";
 import { useAppSelector } from "@src/app/store/hooks";
 import { getActiveStep } from "../../slice/createUser.selector";
 import { UserInfoStep } from "../UserInfoStep";
+import { UserAdvantagesStep } from "../UserAdvantagesStep";
 
 const getPage = (activeStep: number): ReactNode => {
     switch (activeStep) {
@@ -12,7 +13,7 @@ const getPage = (activeStep: number): ReactNode => {
             return <UserInfoStep />;
         }
         case 2: {
-            return null;
+            return <UserAdvantagesStep />;
         }
         case 3: {
             return null;

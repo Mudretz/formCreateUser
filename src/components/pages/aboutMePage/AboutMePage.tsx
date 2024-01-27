@@ -13,7 +13,7 @@ import Button from "../../../shared/components/ui/Button/index.tsx";
 import ModalSuccess from "../../../shared/components/common/ModalSuccess/ModalSuccess.tsx";
 import ModalError from "../../../shared/components/common/ModalError/ModalError.tsx";
 import style from "./AboutMePage.module.scss";
-import { transformToArrayString } from "../../../utils/transformToArrayString.ts";
+import { transformToArrayString } from "../../../shared/utils/transformToArrayString.ts";
 
 type FormData = yup.InferType<typeof aboutMeSchema>;
 

@@ -18,8 +18,16 @@ const initialState: UserState = {
         sex: null,
     },
     userAdvantages: {
-        advantages: [],
-        checkboxes: [],
+        advantages: [
+            {
+                advantage: "",
+            },
+        ],
+        checkboxes: {
+            1: false,
+            2: false,
+            3: false,
+        },
         radioOption: "",
     },
     userAbout: "",

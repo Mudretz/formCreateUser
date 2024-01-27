@@ -1,6 +1,7 @@
 import * as yup from "yup";
 
 export const stringValidation = yup.string().trim();
+export const booleanValidation = yup.boolean().required();
 
 export const stringValidationSymbol = stringValidation.matches(
     /^[a-zA-Z0-9а-яА-Я]*$/,

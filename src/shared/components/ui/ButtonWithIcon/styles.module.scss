@@ -1,0 +1,15 @@
+.button {
+    margin-top: 20px;
+    width: 44px;
+    height: 44px;
+    border: 1.5px solid var(--color-purple);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}

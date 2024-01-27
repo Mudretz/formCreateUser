@@ -34,9 +34,11 @@ export const FormSelect: FC<PropsSelect> = ({
             <Controller
                 name={name}
                 control={control}
-                render={({ field }) => (
+                render={({ field: { onChange, value, name } }) => (
                     <CustomSelect
-                        {...field}
+                        name={name}
+                        value={value}
+                        onChange={onChange}
                         options={options}
                         {...props}
                     />
