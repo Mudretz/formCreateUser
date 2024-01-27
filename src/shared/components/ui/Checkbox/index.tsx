@@ -1,15 +1,18 @@
-import { ComponentProps, FC } from "react";
+import { ComponentProps, forwardRef, useId } from "react";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
 
-interface Props extends ComponentProps<"input"> {}
-
-export const Checkbox: FC<Props> = ({ className, ...props }) => {
-    return (
-        <input
-            type='checkbox'
-            className={classNames(styles.input, className)}
-            {...props}
-        />
-    );
-};
+export const Checkbox = forwardRef<HTMLInputElement, ComponentProps<"input">>(
+    ({ className, id, ...props }, ref) => {
+        const randomId = useId();
+        return (
+            <input
+                {...props}
+                ref={ref}
+                id={id || randomId}
+                type='checkbox'
+                className={classNames(styles.input, className)}
+            />
+        );
+    },
+);

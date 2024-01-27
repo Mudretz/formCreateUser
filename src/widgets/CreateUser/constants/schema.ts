@@ -31,25 +31,25 @@ export const shemaUserAdvantagesStep = yup.object({
         )
         .required("Поле обязательно для заполнения"),
     checkboxes: yup
-        .object()
-        .shape({
-            1: booleanValidation,
-            2: booleanValidation,
-            3: booleanValidation,
-        })
-        .test(
-            "is-one-true",
-            "Выберите один или несколько вариантов",
-            (value) => {
-                if (Object.values(value).some((item) => item === true)) {
-                    return false;
-                }
-                return true;
-            },
-        ),
-    // .array()
-    // .required("Выберите один или несколько вариантов")
-    // .min(1, "Выберите один или несколько вариантов"),
+        // .object()
+        // .shape({
+        //     1: booleanValidation,
+        //     2: booleanValidation,
+        //     3: booleanValidation,
+        // })
+        // .test(
+        //     "is-one-true",
+        //     "Выберите один или несколько вариантов",
+        //     (value) => {
+        //         if (Object.values(value).some((item) => item === true)) {
+        //             return false;
+        //         }
+        //         return true;
+        //     },
+        // ),
+    .array()
+    .required("Выберите один или несколько вариантов")
+    .min(1, "Выберите один или несколько вариантов"),
     radioOption: yup.string().required("Выберите один из вариантов"),
 });
 

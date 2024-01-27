@@ -23,10 +23,6 @@ export interface UserAdvantages {
     advantages: {
         advantage: string
     }[];
-    checkboxes: {
-        1: boolean,
-        2: boolean,
-        3: boolean,
-    };
+    checkboxes: number[],
     radioOption: string;
 }

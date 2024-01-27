@@ -6,6 +6,7 @@ import { useFieldArray, useFormContext } from "react-hook-form";
 import { FormValuesUserAdvantagesStep } from "../../constants/schema";
 import { Input } from "@src/shared/components/ui";
 import { ButtonWithIcon } from "@src/shared/components/ui/ButtonWithIcon";
+import { ErrorText } from "@src/shared/components/ui/ErrorText";
 
 export const UserAdvantagesFieldsArray: FC = () => {
     const {
@@ -32,9 +33,9 @@ export const UserAdvantagesFieldsArray: FC = () => {
                         onClick={() => remove(index)}
                     />
                     {errors.advantages && (
-                        <p className={styles.error_input}>
+                        <ErrorText className={styles.error}>
                             {errors.advantages[index]?.advantage?.message}
-                        </p>
+                        </ErrorText>
                     )}
                 </div>
             ))}

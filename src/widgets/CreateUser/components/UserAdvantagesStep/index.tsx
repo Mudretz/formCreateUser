@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import styles from "./styles.module.scss";
 import { FormProvider, useForm } from "react-hook-form";
 import { Button } from "@src/shared/components/ui";
@@ -12,6 +12,7 @@ import { useAppDispatch, useAppSelector } from "@src/app/store/hooks";
 import { stepDecrease } from "../../slice/createUser.slices";
 import { getUserAdvantages } from "@src/entities/user/slice/user.selectors";
 import { FormCheckbox } from "@src/shared/components/common";
+import { GroupCheckbox } from "@src/shared/components/common/GroupCheckbox";
 
 export const UserAdvantagesStep: FC = () => {
     const dispatch = useAppDispatch();
@@ -21,7 +22,7 @@ export const UserAdvantagesStep: FC = () => {
         defaultValues: userAdvantages,
         resolver: yupResolver(shemaUserAdvantagesStep),
     });
-    const { handleSubmit, register } = form;
+    const { handleSubmit, formState: { errors } } = form;
 
     const onSubmit = (data: FormValuesUserAdvantagesStep) => {
         console.log(data);
@@ -35,16 +36,13 @@ export const UserAdvantagesStep: FC = () => {
         <FormProvider {...form}>
             <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                 <UserAdvantagesFieldsArray />
-                <FormCheckbox
-                    name='checkboxes'
-                    label="1"
+                <GroupCheckbox
+                    label="Checkbox group"
+                    data={[1, 2, 3]}
+                    name={"checkboxes"}
+                    showError
+                    errors={errors}
                 />
-                {/* <RadioGroup
-                    name='Radio Group'
-                    nameInput='radioOption'
-                    data={radioGroupData}
-                    errorMessage={errors.radioOption?.message || ""}
-                /> */}
                 <div className={styles.buttons_group}>
                     <Button
                         id='button-back'

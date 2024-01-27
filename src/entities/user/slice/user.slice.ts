@@ -23,12 +23,8 @@ const initialState: UserState = {
                 advantage: "",
             },
         ],
-        checkboxes: {
-            1: false,
-            2: false,
-            3: false,
-        },
-        radioOption: "",
+        checkboxes: [1],
+        radioOption: "12",
     },
     userAbout: "",
 };

@@ -1,9 +1,9 @@
 import { FC, useId } from "react";
-import styles from "./styles.module.scss";
-import { ErrorType } from "@src/shared/types/common";
 import { useFormContext } from "react-hook-form";
-import { ErrorMessage } from "@hookform/error-message";
+import { ErrorType } from "@src/shared/types/common";
 import { Checkbox } from "../../ui/Checkbox";
+import { ErrorMessageForm } from "../ErrorMessageForm";
+import styles from "./styles.module.scss";
 
 type Props = {
     name: string;
@@ -20,21 +20,7 @@ export const FormCheckbox: FC<Props> = ({ name, label, ...props }) => {
                 <Checkbox {...register} id={randomId} />
                 {label}
             </label>
-            {props.showError && (
-                <>
-                    {props.errors[name] ? (
-                        <ErrorMessage
-                            errors={props.errors}
-                            name={name}
-                            render={({ message }) => (
-                                <p className={styles.error}>{message}</p>
-                            )}
-                        />
-                    ) : (
-                        <p className={styles.error}>{"\u00A0"}</p>
-                    )}
-                </>
-            )}
+            <ErrorMessageForm name={name} {...props} />
         </div>
     );
 };
