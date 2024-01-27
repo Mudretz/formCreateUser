@@ -18,13 +18,9 @@ const initialState: UserState = {
         sex: null,
     },
     userAdvantages: {
-        advantages: [
-            {
-                advantage: "",
-            },
-        ],
-        checkboxes: [1],
-        radioOption: "12",
+        advantages: [],
+        checkboxes: [],
+        radioOption: null,
     },
     userAbout: "",
 };

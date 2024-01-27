@@ -1,17 +1,19 @@
-import { FC, useState } from "react";
-import styles from "./styles.module.scss";
+import { FC } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useForm } from "react-hook-form";
 import { Button } from "@src/shared/components/ui";
 import {
     FormValuesUserAdvantagesStep,
-    shemaUserAdvantagesStep,
+    schemaUserAdvantagesStep,
 } from "../../constants/schema";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { UserAdvantagesFieldsArray } from "../UserAdvantagesFieldsArray";
 import { useAppDispatch, useAppSelector } from "@src/app/store/hooks";
 import { stepDecrease } from "../../slice/createUser.slices";
 import { getUserAdvantages } from "@src/entities/user/slice/user.selectors";
-import { FormCheckbox } from "@src/shared/components/common";
+import { userAdvantagesReceived } from "@src/entities/user/slice/user.slice";
+import { prepareValueUserAdvantages } from "../../helpers";
+import styles from "./styles.module.scss";
+import { RadioGroup } from "@src/shared/components/common";
 import { GroupCheckbox } from "@src/shared/components/common/GroupCheckbox";
 
 export const UserAdvantagesStep: FC = () => {
@@ -19,13 +21,21 @@ export const UserAdvantagesStep: FC = () => {
     const userAdvantages = useAppSelector(getUserAdvantages);
 
     const form = useForm<FormValuesUserAdvantagesStep>({
-        defaultValues: userAdvantages,
-        resolver: yupResolver(shemaUserAdvantagesStep),
+        defaultValues: prepareValueUserAdvantages(userAdvantages),
+        resolver: yupResolver(schemaUserAdvantagesStep),
     });
-    const { handleSubmit, formState: { errors } } = form;
+    const {
+        handleSubmit,
+        formState: { errors },
+    } = form;
 
     const onSubmit = (data: FormValuesUserAdvantagesStep) => {
-        console.log(data);
+        dispatch(
+            userAdvantagesReceived({
+                ...data,
+                advantages: data.advantages.map((item) => item.advantage),
+            }),
+        );
     };
 
     const goBack = () => {
@@ -37,9 +47,16 @@ export const UserAdvantagesStep: FC = () => {
             <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                 <UserAdvantagesFieldsArray />
                 <GroupCheckbox
-                    label="Checkbox group"
+                    name='checkboxes'
+                    label='Checkbox group'
                     data={[1, 2, 3]}
-                    name={"checkboxes"}
+                    showError
+                    errors={errors}
+                />
+                <RadioGroup
+                    name='radioOption'
+                    label='Checkbox group'
+                    data={[1, 2, 3]}
                     showError
                     errors={errors}
                 />

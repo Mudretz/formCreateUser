@@ -16,8 +16,8 @@ export const GroupCheckbox: FC<Props> = ({ name, data, label, ...props }) => {
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement>,
-        value: number[],
-        onChange: (event: number[]) => void,
+        value: Props["data"],
+        onChange: (event: Props["data"]) => void,
     ) => {
         const numberValue = Number(e.target.value);
         const findItem = value.find(

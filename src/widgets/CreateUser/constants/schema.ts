@@ -19,7 +19,7 @@ export const schemaUserInfoStep = yup.object().shape({
     sex: optionValidationRequired,
 });
 
-export const shemaUserAdvantagesStep = yup.object({
+export const schemaUserAdvantagesStep = yup.object({
     advantages: yup
         .array()
         .of(
@@ -31,29 +31,17 @@ export const shemaUserAdvantagesStep = yup.object({
         )
         .required("Поле обязательно для заполнения"),
     checkboxes: yup
-        // .object()
-        // .shape({
-        //     1: booleanValidation,
-        //     2: booleanValidation,
-        //     3: booleanValidation,
-        // })
-        // .test(
-        //     "is-one-true",
-        //     "Выберите один или несколько вариантов",
-        //     (value) => {
-        //         if (Object.values(value).some((item) => item === true)) {
-        //             return false;
-        //         }
-        //         return true;
-        //     },
-        // ),
-    .array()
-    .required("Выберите один или несколько вариантов")
-    .min(1, "Выберите один или несколько вариантов"),
-    radioOption: yup.string().required("Выберите один из вариантов"),
+        .array()
+        .required("Выберите один или несколько вариантов")
+        .min(1, "Выберите один или несколько вариантов"),
+    radioOption: yup
+        .number()
+        .required()
+        .nullable()
+        .test("nullable", "Выберите один из вариантов", (value) => value !== null),
 });
 
 export type FormValuesUserInfoStep = yup.InferType<typeof schemaUserInfoStep>;
 export type FormValuesUserAdvantagesStep = yup.InferType<
-    typeof shemaUserAdvantagesStep
+    typeof schemaUserAdvantagesStep
 >;

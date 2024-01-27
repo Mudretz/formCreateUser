@@ -1,12 +1,11 @@
 import { FC } from "react";
 import styles from "./styles.module.scss";
 import DeleteIcon from "@src/shared/assets/delete.svg?react";
-import PlusIcon from "@src/shared/assets/plus.svg?react";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import { FormValuesUserAdvantagesStep } from "../../constants/schema";
 import { Input } from "@src/shared/components/ui";
-import { ButtonWithIcon } from "@src/shared/components/ui/ButtonWithIcon";
-import { ErrorText } from "@src/shared/components/ui/ErrorText";
+import { ButtonWithIcon } from "@src/shared/components/ui";
+import { ErrorText } from "@src/shared/components/ui";
 
 export const UserAdvantagesFieldsArray: FC = () => {
     const {
@@ -18,6 +17,7 @@ export const UserAdvantagesFieldsArray: FC = () => {
         control,
         name: "advantages",
     });
+
     return (
         <div className={styles.container}>
             <p>Advantages</p>

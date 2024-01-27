@@ -1,6 +1,6 @@
 import { ErrorType } from "@src/shared/types/common";
 import { FC } from "react";
-import { ErrorText } from "../../ui/ErrorText";
+import { ErrorText } from "../../ui";
 import { ErrorMessage } from "@hookform/error-message";
 
 type Props = {
