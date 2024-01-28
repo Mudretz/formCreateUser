@@ -19,8 +19,7 @@ import { getUser } from "@src/entities/user/slice/user.selectors";
 import { transformUserDataForApi } from "@src/entities/user/helpers";
 import { TypeModals } from "@src/shared/types/common";
 import { TYPE_MODALS } from "@src/shared/constants/common";
-import { ModalSuccess } from "@src/shared/components/common/ModalSuccess";
-import { ModalError } from "@src/shared/components/common/ModalError";
+import { ModalError, ModalSuccess } from "@src/shared/components/common";
 import styles from "./styles.module.scss";
 
 export const UserAboutStep: FC = () => {
