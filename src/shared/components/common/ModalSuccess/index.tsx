@@ -19,7 +19,7 @@ export const ModalSuccess: FC<Props> = ({
         <Modal active={active} onHide={onHide}>
             <div className={styles.container}>
                 <p>{message}</p>
-                <SuccesIcon />
+                <SuccesIcon style={{ width: 80, height: 80 }} />
                 <Button id='button-to-main' onClick={onClick} theme='primary'>
                     На главную
                 </Button>
