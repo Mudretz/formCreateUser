@@ -5,9 +5,13 @@ export interface Option {
     label: string;
 }
 
-export type ErrorType = {
-    showError?: false,
-} | {
-    showError?: true,
-    errors: FieldErrors
-};
+export type ErrorType =
+    | {
+          showError?: false;
+      }
+    | {
+          showError?: true;
+          errors: FieldErrors;
+      };
+
+export type TypeModals = "success" | "error" | null;

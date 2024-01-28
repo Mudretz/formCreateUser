@@ -36,6 +36,7 @@ export const FormSelect: FC<PropsSelect> = ({
                 control={control}
                 render={({ field: { onChange, value, name } }) => (
                     <CustomSelect
+                        id={name}
                         name={name}
                         value={value}
                         onChange={onChange}

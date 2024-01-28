@@ -1,34 +1,27 @@
-import { ComponentProps, FC } from "react";
-import errorIcon from "../../../assets/error.svg";
-import Modal from "../../../../components/common/modalWindow/ModalWindow";
-
-import iconClose from "../../../assets/iconClose.svg";
+import { FC } from "react";
+import { Button, Modal } from "../../ui";
+import IconClose from "@src/shared/assets/iconClose.svg?react";
+import ErrorIcon from "@src/shared/assets/error.svg?react";
 import styles from "./styles.module.scss";
-import { Button } from "../../ui";
 
-interface Props extends Pick<ComponentProps<"button">, "onClick"> {
+interface Props {
     active: boolean;
     onHide: () => void;
 }
 
-export const ModalError: FC<Props> = ({ active, onHide, onClick }) => {
+export const ModalError: FC<Props> = ({ active, onHide }) => {
     return (
         <Modal active={active} onHide={onHide}>
             <div className={styles.container}>
                 <div className={styles.title}>
                     <p>Ошибка</p>
-                    <img
-                        className={styles.close}
-                        src={iconClose}
-                        alt='закрыть'
-                        onClick={onHide}
-                    />
+                    <IconClose className={styles.close} onClick={onHide} />
                 </div>
-                <img className={styles.error} src={errorIcon} alt='ошибка' />
+                <ErrorIcon className={styles.error}/>
                 <div className={styles.button}>
                     <Button
                         id='button-to-main'
-                        onClick={onClick}
+                        onClick={onHide}
                         theme='primary'
                     >
                         Закрыть

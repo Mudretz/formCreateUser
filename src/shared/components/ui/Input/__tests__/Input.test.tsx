@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import userEvent from '@testing-library/user-event'
-import Input from "..";
+import userEvent from "@testing-library/user-event";
+import { Input } from "..";
 
 test("Тестирование Input", async () => {
     const onChange = vi.fn();
@@ -9,7 +9,7 @@ test("Тестирование Input", async () => {
             className={"testClass"}
             onChange={onChange}
             placeholder={"placeholder"}
-        />
+        />,
     );
     const input = screen.getByRole("textbox");
     expect(input).toBeInTheDocument();
@@ -19,8 +19,8 @@ test("Тестирование Input", async () => {
     expect(onChange).toHaveBeenCalledWith(
         expect.objectContaining({
             target: expect.objectContaining({
-                value: "test"
-            })
-        })
+                value: "test",
+            }),
+        }),
     );
 });

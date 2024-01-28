@@ -15,11 +15,11 @@ export const RadioGroup: FC<Props> = ({ name, label, data, ...props }) => {
     const { control } = useFormContext();
 
     return (
-        <div className={styles.form_item}>
+        <div className={styles.formItem}>
             {label}
-            <div className={styles.input_list}>
+            <div className={styles.inputList}>
                 {data.map((item) => (
-                    <label key={item}>
+                    <label key={item} className={styles.label}>
                         <Controller
                             control={control}
                             name={name}

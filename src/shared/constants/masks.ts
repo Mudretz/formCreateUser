@@ -1,4 +1,4 @@
-export const phoneMask = [
+export const PHONE_MASK = [
     "+",
     "7",
     " ",

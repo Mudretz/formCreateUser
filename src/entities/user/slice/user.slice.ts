@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import {
+    UserAbout,
     UserAdvantages,
     UserContacts,
     UserInfo,
@@ -18,11 +19,13 @@ const initialState: UserState = {
         sex: null,
     },
     userAdvantages: {
-        advantages: [],
+        advantages: [""],
         checkboxes: [],
         radioOption: null,
     },
-    userAbout: "",
+    userAbout: {
+        text: "",
+    },
 };
 
 const userSlice = createSlice({
@@ -41,9 +44,10 @@ const userSlice = createSlice({
         ) => {
             state.userAdvantages = action.payload;
         },
-        userAboutReceived: (state, action: PayloadAction<string>) => {
+        userAboutReceived: (state, action: PayloadAction<UserAbout>) => {
             state.userAbout = action.payload;
         },
+        userClear: () => initialState,
     },
 });
 
@@ -54,5 +58,6 @@ export const {
         userInfoReceived,
         userAdvantagesReceived,
         userAboutReceived,
+        userClear,
     },
 } = userSlice;

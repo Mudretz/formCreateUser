@@ -1,8 +1,8 @@
+import userEvent from '@testing-library/user-event'
 import { render, renderHook, screen } from "@testing-library/react";
 import { useForm, FormProvider } from "react-hook-form";
-import userEvent from '@testing-library/user-event'
-import FormInputMask from "@/components/common/FormPhoneInput/FormInputMask.tsx";
-import {phoneMask} from "@/constants/mask/inputMasks.ts";
+import { FormInputMask } from "..";
+import { PHONE_MASK } from "@src/shared/constants/masks";
 
 type FormValues = {
     test: string
@@ -14,7 +14,7 @@ describe("Тестирование FormInputMask", () => {
         render(
             <FormProvider {...formHookReturn.current}>
                 <FormInputMask
-                    mask={phoneMask}
+                    mask={PHONE_MASK}
                     formText={"Текстовое поле"}
                     name={"test"}
                 />

@@ -5,7 +5,7 @@ import { Suspense } from "react";
 import { SuspenseLoader } from "../SuspenseLoader";
 import store from "@src/app/store";
 
-function App() {
+export const App = () => {
     return (
         <Provider store={store}>
             <Suspense fallback={<SuspenseLoader />}>
@@ -13,6 +13,4 @@ function App() {
             </Suspense>
         </Provider>
     );
-}
-
-export default App;
+};

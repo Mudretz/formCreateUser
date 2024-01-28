@@ -1,5 +1,9 @@
 import { RootState } from "@src/app/store";
 
+export const getUser = (state: RootState) => {
+    return state.user;
+};
+
 export const getUserContacts = (state: RootState) => {
     return state.user.userContacts;
 };

@@ -7,3 +7,4 @@ export * from "./Step";
 export * from "./CustomSelect";
 export * from "./ButtonWithIcon";
 export * from "./ErrorText";
+export * from "./Textarea";

@@ -1,21 +1,22 @@
-.form_item {
-    margin-top: 14px;
+.formItem {
     display: flex;
     flex-direction: column;
     row-gap: 8px;
     min-height: 110px;
 }
 
-.input_list {
+.inputList {
     display: flex;
     flex-direction: column;
+    row-gap: 8px;
 }
 
 .input {
-    margin-right: 10px;
     accent-color: var(--color-purple);
 }
 
-.error {
-    color: var(--color-error);
+.label {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
 }

@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from '@testing-library/user-event'
-import Button from "..";
+import { Button } from "..";
 
 test("Тестирование Button", async () => {
     const spy = vi.fn();

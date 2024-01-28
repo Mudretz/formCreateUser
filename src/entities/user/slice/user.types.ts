@@ -4,7 +4,7 @@ export interface UserState {
     userContacts: UserContacts;
     userInfo: UserInfo;
     userAdvantages: UserAdvantages;
-    userAbout: string;
+    userAbout: UserAbout;
 }
 
 export interface UserContacts {
@@ -23,4 +23,8 @@ export interface UserAdvantages {
     advantages: string[];
     checkboxes: number[];
     radioOption: number | null;
+}
+
+export interface UserAbout {
+    text: string;
 }

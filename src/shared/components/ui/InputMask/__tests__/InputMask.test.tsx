@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { phoneMask } from "@src/shared/constants/masks";
+import { PHONE_MASK } from "@src/shared/constants/masks";
 import userEvent from '@testing-library/user-event'
 import InputMask from "..";
 
@@ -7,7 +7,7 @@ test("Тестирование InputMask", async () => {
     const onChange = vi.fn();
     render(
         <InputMask
-            mask={phoneMask}
+            mask={PHONE_MASK}
             onChange={onChange}
             placeholder={"placeholder"}
             className={"testClass"}
