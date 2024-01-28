@@ -9,7 +9,12 @@ interface Props extends Pick<ComponentProps<"button">, "onClick"> {
     message: string;
 }
 
-export const ModalSuccess: FC<Props> = ({ active, onHide, message, onClick }) => {
+export const ModalSuccess: FC<Props> = ({
+    active,
+    onHide,
+    message,
+    onClick,
+}) => {
     return (
         <Modal active={active} onHide={onHide}>
             <div className={styles.container}>

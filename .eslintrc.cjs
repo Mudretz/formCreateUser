@@ -22,10 +22,4 @@ module.exports = {
             },
         ],
     },
-    settings: {
-        "import/resolver": {
-            typescript: true,
-            node: true,
-        }
-    }
 };

@@ -23,7 +23,9 @@ export const RadioGroup: FC<Props> = ({ name, label, data, ...props }) => {
                         <Controller
                             control={control}
                             name={name}
-                            render={({ field: { onChange, value, ...rest } }) => (
+                            render={({
+                                field: { onChange, value, ...rest },
+                            }) => (
                                 <input
                                     {...rest}
                                     checked={item === value}

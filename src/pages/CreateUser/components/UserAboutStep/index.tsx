@@ -11,7 +11,10 @@ import {
 } from "../../constants/schema";
 import { FormTextarea } from "@src/shared/components/common/FormTextarea";
 import { useCreateUserMutation } from "@src/entities/user/service/user.service";
-import { userAboutReceived, userClear } from "@src/entities/user/slice/user.slice";
+import {
+    userAboutReceived,
+    userClear,
+} from "@src/entities/user/slice/user.slice";
 import { getUser } from "@src/entities/user/slice/user.selectors";
 import { transformUserDataForApi } from "@src/entities/user/helpers";
 import { TypeModals } from "@src/shared/types/common";

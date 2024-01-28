@@ -17,7 +17,7 @@ export const ModalError: FC<Props> = ({ active, onHide }) => {
                     <p>Ошибка</p>
                     <IconClose className={styles.close} onClick={onHide} />
                 </div>
-                <ErrorIcon className={styles.error}/>
+                <ErrorIcon className={styles.error} />
                 <div className={styles.button}>
                     <Button
                         id='button-to-main'

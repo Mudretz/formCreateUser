@@ -11,7 +11,7 @@ interface Props extends ComponentProps<"button"> {
 const getIconByType = (type: Props["buttonType"]) => {
     switch (type) {
         case "add":
-            return <PlusIcon className={styles.icon}/>;
+            return <PlusIcon className={styles.icon} />;
         default:
             return notReachable(type);
     }

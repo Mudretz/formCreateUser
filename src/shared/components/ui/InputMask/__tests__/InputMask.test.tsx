@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { PHONE_MASK } from "@src/shared/constants/masks";
-import userEvent from '@testing-library/user-event'
+import userEvent from "@testing-library/user-event";
 import { InputMask } from "..";
 
 test("Тестирование InputMask", async () => {
@@ -11,7 +11,7 @@ test("Тестирование InputMask", async () => {
             onChange={onChange}
             placeholder={"placeholder"}
             className={"testClass"}
-        />
+        />,
     );
     const maskInput = screen.getByRole("textbox");
     expect(maskInput).toBeInTheDocument();
@@ -24,8 +24,8 @@ test("Тестирование InputMask", async () => {
     expect(onChange).toHaveBeenCalledWith(
         expect.objectContaining({
             target: expect.objectContaining({
-                value: "+7 (991) 4__-__-__"
-            })
-        })
+                value: "+7 (991) 4__-__-__",
+            }),
+        }),
     );
 });

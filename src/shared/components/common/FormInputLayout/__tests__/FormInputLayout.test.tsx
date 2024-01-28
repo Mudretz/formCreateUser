@@ -1,15 +1,16 @@
-
 import { act, render, renderHook, screen } from "@testing-library/react";
 import { useForm, FormProvider } from "react-hook-form";
 import { FormInputLayout } from "..";
 
 type FormValues = {
-    test: string
+    test: string;
 };
 
 describe("Тестирование FormInputLayout", () => {
     test("Базовое тестирование", async () => {
-        const { result: formHookReturn} = renderHook(() => useForm<FormValues>());
+        const { result: formHookReturn } = renderHook(() =>
+            useForm<FormValues>(),
+        );
         const { rerender } = render(
             <FormProvider {...formHookReturn.current}>
                 <FormInputLayout
@@ -23,14 +24,14 @@ describe("Тестирование FormInputLayout", () => {
                         {...formHookReturn.current.register("test")}
                     />
                 </FormInputLayout>
-            </FormProvider>
+            </FormProvider>,
         );
         const inp = screen.getByRole("textbox");
         expect(inp).toBeInTheDocument();
         expect(screen.getByLabelText("Текстовое поле")).toBeInTheDocument();
         act(() => {
             formHookReturn.current.setError("test", {
-                message: "errorValues"
+                message: "errorValues",
             });
         });
 
@@ -47,24 +48,21 @@ describe("Тестирование FormInputLayout", () => {
                         {...formHookReturn.current.register("test")}
                     />
                 </FormInputLayout>
-            </FormProvider>
+            </FormProvider>,
         );
         expect(await screen.findByText("errorValues")).toBeInTheDocument();
 
         rerender(
             <FormProvider {...formHookReturn.current}>
-                <FormInputLayout
-                    name={"test"}
-                    showError={false}
-                >
+                <FormInputLayout name={"test"} showError={false}>
                     <input
                         id={"test"}
                         {...formHookReturn.current.register("test")}
                     />
                 </FormInputLayout>
-            </FormProvider>
+            </FormProvider>,
         );
         expect(screen.queryByText("errorValues")).toBeNull();
         expect(screen.queryByLabelText("Текстовое поле")).toBeNull();
-    })
-})
+    });
+});

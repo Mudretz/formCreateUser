@@ -20,13 +20,9 @@ export const GroupCheckbox: FC<Props> = ({ name, data, label, ...props }) => {
         onChange: (event: Props["data"]) => void,
     ) => {
         const numberValue = Number(e.target.value);
-        const findItem = value.find(
-            (item: number) => item === numberValue,
-        );
+        const findItem = value.find((item: number) => item === numberValue);
         if (findItem) {
-            onChange(
-                value.filter((item: number) => item !== numberValue),
-            );
+            onChange(value.filter((item: number) => item !== numberValue));
         } else {
             onChange([...value, numberValue].sort());
         }

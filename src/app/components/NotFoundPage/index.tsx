@@ -1,9 +1,9 @@
 import { FC } from "react";
-import style from "./NotFoundPage.module.scss";
+import styles from "./styles.module.scss";
 
 export const NotFoundPage: FC = () => {
     return (
-        <div className={style.container}>
+        <div className={styles.container}>
             <p>Страница не найдена</p>
         </div>
     );
