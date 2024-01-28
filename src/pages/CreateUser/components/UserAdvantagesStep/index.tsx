@@ -60,7 +60,7 @@ export const UserAdvantagesStep: FC = () => {
                     showError
                     errors={errors}
                 />
-                <div className={styles.buttons_group}>
+                <div className={styles.buttonsGroup}>
                     <Button
                         id='button-back'
                         onClick={goBack}

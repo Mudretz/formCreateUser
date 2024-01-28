@@ -59,7 +59,7 @@ export const UserInfoStep: FC = () => {
                         label='Sex'
                     />
                 </div>
-                <div className={styles.buttons_group}>
+                <div className={styles.buttonsGroup}>
                     <Button id='button-back' theme='secondary' onClick={goBack}>
                         Назад
                     </Button>
