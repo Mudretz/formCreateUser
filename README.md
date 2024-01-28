@@ -1,5 +1,5 @@
 # Тестовое задание
-
+Архитектура: FSD<br/>
 Стек техногологий: HTML, CSS, SCSS, SCSS modules, TypeScript, React, Redux Toolkit, React hook form, ClassNames<br/>
 
 ## Информация:
