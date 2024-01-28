@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Controller, useFormContext, useFormState } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import{ MaskedInputProps } from "react-text-mask";
-import InputMask from "../../ui/InputMask";
+import { InputMask } from "../../ui";
 import styles from "./styles.module.scss";
 
 interface Props extends MaskedInputProps {
