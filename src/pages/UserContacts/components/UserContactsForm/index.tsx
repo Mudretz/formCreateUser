@@ -26,13 +26,14 @@ export const UserContactsForm: FC = () => {
     const { handleSubmit } = form;
 
     const onSubmit = (data: FormValuesUserContacts) => {
+        console.log(data);
         dispatch(userContactsReceived(data));
         navigate("/create");
     };
 
     return (
         <FormProvider {...form}>
-            <main className={styles.main}>
+            <main className={styles.main} id='main'>
                 <FormProvider {...form}>
                     <form
                         className={styles.form}
@@ -44,6 +45,7 @@ export const UserContactsForm: FC = () => {
                             formText='Номер телефона'
                             placeholder='+7 999 999-99-99'
                             guide={false}
+                            data-testid='input-phone'
                         />
                         <FormInput
                             id='field-email'

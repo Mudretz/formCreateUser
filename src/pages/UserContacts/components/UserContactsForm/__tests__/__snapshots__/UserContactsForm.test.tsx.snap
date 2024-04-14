@@ -1,0 +1,181 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`UserContact component > Тестирование структуры UserContacts 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <main
+        class="_main_376b55"
+        id="main"
+      >
+        <form
+          class="_form_376b55"
+        >
+          <div
+            class="_form_67f839"
+          >
+            <label
+              for="phone"
+            >
+              Номер телефона
+            </label>
+            <input
+              class="_input_a02559"
+              data-testid="input-phone"
+              id="phone"
+              name="phone"
+              placeholder="+7 999 999-99-99"
+              value=""
+            />
+            <p
+              class="_error_67f839"
+            >
+               
+            </p>
+          </div>
+          <div
+            class="_form_bc7e7f"
+          >
+            <input
+              class="_input_c0d863"
+              data-testid="input-email"
+              id="email"
+              name="email"
+              placeholder="tim.jennings@example.com"
+            />
+            <p
+              class="_error_bc7e7f"
+            >
+               
+            </p>
+          </div>
+          <button
+            class="_button_376b55 _button_1ee4c7 _primary_1ee4c7"
+            data-testid="button-start"
+            id=":r1:"
+            type="submit"
+          >
+            Начать
+          </button>
+        </form>
+      </main>
+    </div>
+  </body>,
+  "container": <div>
+    <main
+      class="_main_376b55"
+      id="main"
+    >
+      <form
+        class="_form_376b55"
+      >
+        <div
+          class="_form_67f839"
+        >
+          <label
+            for="phone"
+          >
+            Номер телефона
+          </label>
+          <input
+            class="_input_a02559"
+            data-testid="input-phone"
+            id="phone"
+            name="phone"
+            placeholder="+7 999 999-99-99"
+            value=""
+          />
+          <p
+            class="_error_67f839"
+          >
+             
+          </p>
+        </div>
+        <div
+          class="_form_bc7e7f"
+        >
+          <input
+            class="_input_c0d863"
+            data-testid="input-email"
+            id="email"
+            name="email"
+            placeholder="tim.jennings@example.com"
+          />
+          <p
+            class="_error_bc7e7f"
+          >
+             
+          </p>
+        </div>
+        <button
+          class="_button_376b55 _button_1ee4c7 _primary_1ee4c7"
+          data-testid="button-start"
+          id=":r1:"
+          type="submit"
+        >
+          Начать
+        </button>
+      </form>
+    </main>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "store": {
+    "@@observable": [Function],
+    "dispatch": [Function],
+    "getState": [Function],
+    "replaceReducer": [Function],
+    "subscribe": [Function],
+  },
+  "unmount": [Function],
+}
+`;

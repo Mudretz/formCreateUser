@@ -23,6 +23,7 @@ export const UserAdvantagesFieldsArray: FC = () => {
                 <div key={field.id}>
                     <Input
                         id={`field-advatages-${index + 1}`}
+                        data-testid={`advantage-${index + 1}`}
                         {...register(`advantages.${index}.advantage`)}
                     />
                     <DeleteIcon
