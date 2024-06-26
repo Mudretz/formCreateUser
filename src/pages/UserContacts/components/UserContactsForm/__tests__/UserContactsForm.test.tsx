@@ -1,7 +1,6 @@
 import { screen } from "@testing-library/react";
 import { UserContactsForm } from "..";
 import { MemoryRouter } from "react-router-dom";
-import puppeteer from "puppeteer";
 import setupStore from "@src/app/store";
 import userEvent from "@testing-library/user-event";
 import { renderWithProviders } from "@src/shared/utils/renderWithProviders";
