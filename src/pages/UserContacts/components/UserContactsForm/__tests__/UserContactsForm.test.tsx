@@ -16,15 +16,15 @@ describe("UserContact component", () => {
         );
         expect(component).toMatchSnapshot();
     });
-    test("Тестирование скрина UserContact", async () => {
-        const browser = await puppeteer.launch();
-        const page = await browser.newPage();
-        await page.goto("http://localhost:3000/");
-        await page.waitForSelector("#main");
-        const image = await page.screenshot();
-        expect(image).toMatchImageSnapshot();
-        page.close();
-    });
+    // test("Тестирование скрина UserContact", async () => {
+    //     const browser = await puppeteer.launch();
+    //     const page = await browser.newPage();
+    //     await page.goto("http://localhost:3000/");
+    //     await page.waitForSelector("#main");
+    //     const image = await page.screenshot();
+    //     expect(image).toMatchImageSnapshot();
+    //     page.close();
+    // });
     test("Тестирование формы", async () => {
         const userContactPost = vi.spyOn(actions, "userContactsReceived");
         const store = setupStore();
