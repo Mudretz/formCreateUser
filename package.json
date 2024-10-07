@@ -21,7 +21,7 @@
     "feedback-se": "https://github.com/Mudretz/feedback-se.git",
     "husky": "^9.0.11",
     "lodash": "^4.17.21",
-    "modal-bottom-sheet": "github:Mudretz/modal-bottom-sheet#v1.0.0",
+    "modal-bottom-sheet": "github:Mudretz/modal-bottom-sheet#v1.0.1",
     "prettier": "^3.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
