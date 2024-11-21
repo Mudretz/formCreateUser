@@ -1,4 +1,4 @@
-import { Button } from "@src/shared/components/ui";
+import { Button, Input } from "@src/shared/components/ui";
 import ModalBottomSheet from "modal-bottom-sheet";
 import { FC, useState } from "react";
 import styles from "./styles.module.scss";
@@ -30,7 +30,7 @@ export const TestingLibrary: FC = () => {
                         textAlign: "center",
                     }}
                 >
-                    Тестовый текст
+                    <Input />
                 </div>
             </ModalBottomSheet>
         </div>
